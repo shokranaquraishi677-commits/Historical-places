@@ -1,0 +1,86 @@
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+@font-face { font-family: sahel; src: url("fonts/Sahel.ttf"); }
+body { font-family: sahel, Tahoma, sans-serif; line-height: 1.8; background-color: #f5f1e8; direction: rtl; color: #293d30; }
+/* ================================= 2. Main Wrapper ================================= */
+.wrapper { display: flex; width: 100%; min-height: 100vh; padding: 20px; gap: 20px; }
+/* ================================= 3. Small Images Section ================================= */
+.all-imgs { display: flex; flex-direction: column; gap: 15px; width: 210px; flex-shrink: 0; padding: 10px; background-color: #e8e0d0; border-radius: 20px; }
+.all-imgs img { width: 100%; height: 18vh; min-height: 100px; object-fit: cover; cursor: pointer; border-radius: 15px; padding: 4px; border: 2px solid transparent; opacity: 0.75; transition: all 0.3s ease; }
+/* Image Hover */
+.all-imgs img:hover { opacity: 1; transform: scale(1.04); border-color: #b99a55; }
+/* ================================= 4. Current Place Section ================================= */
+.current-place { flex: 1; height: calc(100vh - 40px); min-height: 500px; position: relative; overflow: hidden; border-radius: 20px; background-color: #293d30; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+/* ================================= 5. Main Image ================================= */
+.current-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; padding: 0; border-radius: 20px; transition: opacity 0.4s ease; }
+/* ================================= 6. Image Title ================================= */
+.image-title { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: max-content; max-width: 90%; background: rgba(35, 57, 43, 0.85); color: #ffffff; padding: 12px 35px; border-radius: 12px; text-align: center; font-size: 25px; border-bottom: 3px solid #c7a75a; z-index: 2; }
+/* ================================= 7. Image Description ================================= */
+.image-desc { position: absolute; bottom: 5%; left: 5%; right: 5%; background: rgba(35, 57, 43, 0.88); border-radius: 15px; padding: 20px 25px; color: #ffffff; text-align: center; font-size: 16px; line-height: 2; z-index: 2; }
+/* ================================= 8. Image Animation ================================= */
+.animate-imgs { animation: animate-imgs 0.5s ease-in-out; }
+@keyframes animate-imgs {
+from {
+    opacity: 0.3;
+    transform: scale(1.02);
+}
+
+to {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+/* ================================= 9. Responsive Design ================================= */
+@media (max-width: 768px) {
+.wrapper {
+    flex-direction: column;
+    padding: 12px;
+}
+
+.all-imgs {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+.all-imgs img {
+    width: 130px;
+    min-width: 130px;
+    height: 110px;
+}
+
+.current-place {
+    width: 100%;
+    height: 75vh;
+    min-height: 450px;
+}
+
+.image-title {
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.image-desc {
+    font-size: 14px;
+    padding: 15px;
+}
+}
+/* ================================= 10. Small Mobile Screens ================================= */
+@media (max-width: 480px) {
+.current-place {
+    height: 65vh;
+    min-height: 400px;
+}
+
+.image-title {
+    font-size: 17px;
+    top: 5%;
+}
+
+.image-desc {
+    bottom: 3%;
+    font-size: 12px;
+    line-height: 1.9;
+}
+}
